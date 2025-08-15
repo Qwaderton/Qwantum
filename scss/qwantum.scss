@@ -1,0 +1,590 @@
+// ========================================
+// QWANTUM.SCSS - Минималистичный фреймворк
+// ========================================
+
+// ========================================
+// ПЕРЕМЕННЫЕ
+// ========================================
+
+@import url(https://fonts.bunny.net/css?family=open-sans:400|urbanist:400);
+
+$fonts: (
+  main: ('Open Sans', sans-serif),
+  brand: ('Urbanist', sans-serif),
+);
+
+$colors: (
+  primary: #333,
+  secondary: #666,
+  light: #f5f5f5,
+  white: #fff,
+  dark: #222,
+  muted: #ccc
+);
+
+$spacing: (
+  xs: 10px,
+  sm: 20px,
+  md: 30px,
+  lg: 40px,
+  xl: 60px,
+  xxl: 80px,
+  xxxl: 100px
+);
+
+$radius: (
+  sm: 12px,
+  md: 16px,
+  lg: 20px,
+  xl: 24px
+);
+
+$shadows: (
+  subtle: 0 4px 20px rgba(0,0,0,0.1),
+  elevated: 0 10px 40px rgba(0,0,0,0.1),
+  floating: 0 20px 60px rgba(0,0,0,0.15),
+  inset-subtle: inset 0 4px 20px rgba(0,0,0,0.05),
+  inset-deep: inset 0 6px 25px rgba(0,0,0,0.08)
+);
+
+$transitions: (
+  fast: 0.2s ease,
+  normal: 0.3s ease,
+  slow: 0.4s ease
+);
+
+// Миксин для получения шрифтов
+@function font($name) {
+  @return map-get($fonts, $name);
+}
+
+// Миксин для получения цветов
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+// Миксин для получения отступов
+@function space($size) {
+  @return map-get($spacing, $size);
+}
+
+// Миксин для получения радиусов
+@function radius($size) {
+  @return map-get($radius, $size);
+}
+
+// Миксин для получения теней
+@function shadow($type) {
+  @return map-get($shadows, $type);
+}
+
+// Миксин для получения переходов
+@function transition($speed) {
+  @return map-get($transitions, $speed);
+}
+
+// ========================================
+// БАЗОВЫЕ СТИЛИ
+// ========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: font(main);
+  line-height: 1.6;
+  color: color(primary);
+  background: color(light);
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-font {
+  font-family: font(brand);
+}
+
+// Основная область контента для прижатия футера
+.main {
+  flex: 1;
+}
+
+// ========================================
+// КОНТЕЙНЕРЫ И СЕТКИ
+// ========================================
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 space(sm);
+}
+
+.grid {
+  display: grid;
+  gap: space(lg);
+  
+  &--2 { grid-template-columns: repeat(2, 1fr); }
+  &--3 { grid-template-columns: repeat(3, 1fr); }
+  &--4 { grid-template-columns: repeat(4, 1fr); }
+  &--auto { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  &--auto-sm { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+.flex {
+  display: flex;
+  
+  &--center { align-items: center; justify-content: center; }
+  &--between { align-items: center; justify-content: space-between; }
+  &--column { flex-direction: column; }
+  &--wrap { flex-wrap: wrap; }
+  &--gap-sm { gap: space(sm); }
+  &--gap-md { gap: space(md); }
+}
+
+// ========================================
+// ТИПОГРАФИКА
+// ========================================
+
+.text {
+  &--center { text-align: center; }
+  &--left { text-align: left; }
+  &--right { text-align: right; }
+  
+  &--primary { color: color(primary); }
+  &--secondary { color: color(secondary); }
+  &--muted { color: color(muted); }
+  &--white { color: color(white); }
+  
+  &--xs { font-size: 0.8rem; }
+  &--sm { font-size: 0.9rem; }
+  &--md { font-size: 1rem; }
+  &--lg { font-size: 1.2rem; }
+  &--xl { font-size: 1.4rem; }
+  &--2xl { font-size: 1.8rem; }
+  &--3xl { font-size: 2.2rem; }
+  &--4xl { font-size: 2.8rem; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+// ========================================
+// КАРТОЧКИ
+// ========================================
+
+.card {
+  background: color(white);
+  border-radius: radius(lg);
+  padding: space(lg);
+  box-shadow: shadow(elevated);
+  transition: all transition(normal);
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: shadow(floating);
+  }
+  
+  &--inset {
+    background: color(light);
+    box-shadow: shadow(inset-subtle);
+    
+    &:hover {
+      transform: none;
+      box-shadow: shadow(inset-deep);
+    }
+  }
+  
+  &--dark {
+    background: color(primary);
+    color: color(white);
+  }
+  
+  &--center {
+    text-align: center;
+  }
+  
+  &--sm { padding: space(md); }
+  &--lg { padding: space(xl); }
+}
+
+// ========================================
+// КНОПКИ
+// ========================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(xs);
+  padding: 16px 32px;
+  border: none;
+  border-radius: radius(lg);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all transition(normal);
+  box-shadow: shadow(subtle);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: shadow(elevated);
+  }
+  
+  // Основная кнопка - черная на светлом фоне
+  &--primary {
+    background: color(primary);
+    color: color(light);
+  }
+  
+  // Вторичная кнопка - светлая на темном фоне
+  &--secondary {
+    background: color(light);
+    color: color(primary);
+  }
+  
+  // Размеры
+  &--sm {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  
+  &--lg {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+  }
+  
+  // Полная ширина
+  &--full {
+    width: 100%;
+  }
+}
+
+// ========================================
+// ИКОНКИ
+// ========================================
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  
+  &--sm { width: 16px; height: 16px; }
+  &--md { width: 24px; height: 24px; }
+  &--lg { width: 32px; height: 32px; }
+  &--xl { width: 48px; height: 48px; }
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: color(primary);
+  color: color(light);
+  border-radius: radius(lg);
+  margin: 0 auto;
+  
+  &--sm {
+    width: 40px;
+    height: 40px;
+  }
+  
+  &--lg {
+    width: 80px;
+    height: 80px;
+  }
+  
+  &--light {
+    background: color(light);
+    color: color(primary);
+  }
+}
+
+// ========================================
+// СЕКЦИИ
+// ========================================
+
+.section {
+  padding: space(xxxl) 0;
+  
+  &--sm { padding: space(xl) 0; }
+  &--lg { padding: 120px 0; }
+  
+  &--white { background: color(white); }
+  &--light { background: color(light); }
+  &--dark { 
+    background: color(primary);
+    color: color(white);
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: space(xl);
+  
+  &__title {
+    margin-bottom: space(sm);
+  }
+  
+  &__subtitle {
+    color: color(secondary);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .section--dark & {
+    &__subtitle {
+      color: color(muted);
+    }
+  }
+}
+
+// ========================================
+// УТИЛИТАРНЫЕ КЛАССЫ
+// ========================================
+
+// Отступы
+.m {
+  &-0 { margin: 0; }
+  &-xs { margin: space(xs); }
+  &-sm { margin: space(sm); }
+  &-md { margin: space(md); }
+  &-lg { margin: space(lg); }
+  &-xl { margin: space(xl); }
+}
+
+.p {
+  &-0 { padding: 0; }
+  &-xs { padding: space(xs); }
+  &-sm { padding: space(sm); }
+  &-md { padding: space(md); }
+  &-lg { padding: space(lg); }
+  &-xl { padding: space(xl); }
+}
+
+// Тени
+.shadow {
+  &--none { box-shadow: none; }
+  &--subtle { box-shadow: shadow(subtle); }
+  &--elevated { box-shadow: shadow(elevated); }
+  &--floating { box-shadow: shadow(floating); }
+}
+
+// Радиусы
+.rounded {
+  &--none { border-radius: 0; }
+  &--sm { border-radius: radius(sm); }
+  &--md { border-radius: radius(md); }
+  &--lg { border-radius: radius(lg); }
+  &--xl { border-radius: radius(xl); }
+  &--full { border-radius: 9999px; }
+}
+
+// Анимации
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .grid {
+    &--2, &--3, &--4 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .section {
+    padding: space(xl) 0;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  
+  .btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+// ========================================
+// КОМПОНЕНТЫ
+// ========================================
+
+// Hero секция
+.hero {
+  text-align: center;
+  padding: space(xxxl) 0;
+  background: color(white);
+  
+  &__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    margin-bottom: space(sm);
+    color: color(primary);
+  }
+  
+  &__subtitle {
+    font-size: 1.3rem;
+    margin-bottom: space(lg);
+    color: color(secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__cta {
+    margin-top: space(lg);
+  }
+  
+  // Темная версия
+  &--dark {
+    background: color(primary);
+    color: color(white);
+    
+    .hero__title {
+      color: color(white);
+    }
+    
+    .hero__subtitle {
+      color: color(muted);
+    }
+  }
+}
+
+// CTA секция
+.cta {
+  text-align: center;
+  padding: space(xxl) 0;
+  background: color(primary);
+  color: color(white);
+  
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: space(sm);
+    font-weight: 400;
+  }
+  
+  &__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: space(lg);
+    color: color(muted);
+  }
+  
+  &__actions {
+    margin-top: space(lg);
+  }
+  
+  // Светлая версия
+  &--light {
+    background: color(light);
+    color: color(primary);
+    
+    .cta__title {
+      color: color(primary);
+    }
+    
+    .cta__subtitle {
+      color: color(secondary);
+    }
+  }
+}
+
+// Навигация
+.nav {
+  display: flex;
+  gap: space(md);
+  
+  &__link {
+    color: color(secondary);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color transition(normal);
+    
+    &:hover {
+      color: color(primary);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    gap: space(sm);
+  }
+}
+
+// Хедер
+.header {
+  background: color(white);
+  box-shadow: shadow(subtle);
+  padding: space(sm) 0;
+  
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    &__content {
+      flex-direction: column;
+      gap: space(sm);
+    }
+  }
+}
+
+// Логотип
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: color(primary);
+  font-size: 24px;
+  font-weight: 400;
+  text-decoration: none;
+  
+  &--brand {
+    font-family: font(brand);
+  }
+}
+
+// Футер
+.footer {
+  background: color(dark);
+  color: color(light);
+  text-align: center;
+  padding: space(lg) 0;
+  
+  p {
+    color: color(muted);
+  }
+}
