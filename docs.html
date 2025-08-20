@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - Qwantum SCSS</title>
     <meta name="description" content="Complete documentation for Qwantum SCSS framework with examples and usage guides">
-    <link rel="stylesheet" href="scss/qwantum.css">
+    <link rel="stylesheet" href="src/qwantum.css">
     <style>
         .sidebar {
             position: sticky;
@@ -120,35 +120,47 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__content">
-                <a href="index.html" class="logo brand-font">
-                    <div class="icon-box icon-box--sm">
+    <header class="qw-header">
+        <div class="qw-container">
+            <div class="qw-header_content">
+                <a href="index.html" class="qw-logo qw-brand-font">
+                    <div class="qw-icon-box qw-icon-box-sm">
                         <span style="font-weight: bold;">Q</span>
                     </div>
                     Qwantum
                     <span class="version-badge">v1.0</span>
                 </a>
-                <nav class="nav">
-                    <a href="index.html" class="nav__link">Home</a>
-                    <a href="#installation" class="nav__link">Installation</a>
-                    <a href="#components" class="nav__link">Components</a>
-                    <a href="#utilities" class="nav__link">Utilities</a>
-                    <a href="https://github.com/Qwaderton/Qwantum" class="nav__link">GitHub</a>
+                <nav class="qw-nav">
+                    <a href="index.html" class="qw-nav_link">Home</a>
+                    <a href="#installation" class="qw-nav_link">Installation</a>
+                    <a href="#components" class="qw-nav_link">Components</a>
+                    <a href="#utilities" class="qw-nav_link">Utilities</a>
+                    <a href="https://github.com/Qwaderton/Qwantum" class="qw-nav_link">GitHub</a>
                 </nav>
+                <div class="qw-burger">
+                    <div class="qw-burger_line"></div>
+                    <div class="qw-burger_line"></div>
+                    <div class="qw-burger_line"></div>
+                </div>
             </div>
         </div>
+        <nav class="qw-nav qw-nav-mobile">
+            <a href="index.html" class="qw-nav_link">Home</a>
+            <a href="#installation" class="qw-nav_link">Installation</a>
+            <a href="#components" class="qw-nav_link">Components</a>
+            <a href="#utilities" class="qw-nav_link">Utilities</a>
+            <a href="https://github.com/Qwaderton/Qwantum" class="qw-nav_link">GitHub</a>
+        </nav>
     </header>
 
-    <main class="main">
-        <div class="section section--sm">
-            <div class="container">
-                <div class="grid" style="grid-template-columns: 250px 1fr; gap: 60px;" class="docs-layout">
+    <main class="qw-main">
+        <div class="qw-section qw-section-sm">
+            <div class="qw-container">
+                <div class="qw-grid" style="grid-template-columns: 250px 1fr; gap: 60px;" class="docs-layout">
                     <!-- Sidebar Navigation -->
                     <aside class="sidebar">
-                        <div class="card card--sm">
-                            <h4 class="m-0">Contents</h4>
+                        <div class="qw-card qw-card-sm">
+                            <h4 class="qw-m-0">Contents</h4>
                             <ul class="sidebar-nav" style="margin-top: 20px;">
                                 <li><a href="#introduction">Introduction</a></li>
                                 <li><a href="#installation">Installation</a></li>
@@ -167,7 +179,7 @@
                         <!-- Introduction -->
                         <section id="introduction" class="doc-section">
                             <h1>Qwantum SCSS Documentation</h1>
-                            <p class="text--lg text--secondary">Version 1.0</p>
+                            <p class="qw-text-lg qw-text-secondary">Version 1.0</p>
                             <p>
                                 Qwantum is a modern, lightweight CSS framework built with SCSS that provides a comprehensive set of 
                                 components and utilities for building beautiful web interfaces. It focuses on clean design, 
@@ -227,13 +239,14 @@ npm install Qwantum
     &lt;link rel="stylesheet" href="qwantum.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;h1 class="text--center"&gt;Hello Qwantum!&lt;/h1&gt;
-        &lt;div class="card card--center"&gt;
+    &lt;div class="qw-container"&gt;
+        &lt;h1 class="qw-text-center"&gt;Hello Qwantum!&lt;/h1&gt;
+        &lt;div class="qw-card qw-card-center"&gt;
             &lt;p&gt;Your first Qwantum component&lt;/p&gt;
-            &lt;button class="btn btn--primary"&gt;Get Started&lt;/button&gt;
+            &lt;button class="qw-btn qw-btn-primary"&gt;Get Started&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
+    &lt;script src="qwantum.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
                             </div>
@@ -244,9 +257,9 @@ npm install Qwantum
                             <h2>Layout System</h2>
 
                             <h3>Container</h3>
-                            <p>The <code class="code-inline">.container</code> class provides a responsive fixed-width container:</p>
+                            <p>The <code class="code-inline">.qw-container</code> class provides a responsive fixed-width container:</p>
                             <div class="example-box">
-                                <div class="container" style="background: #e3f2fd; padding: 20px; text-align: center;">
+                                <div class="qw-container" style="background: #e3f2fd; padding: 20px; text-align: center;">
                                     Container (max-width: 1200px)
                                 </div>
                             </div>
@@ -262,17 +275,17 @@ npm install Qwantum
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code class="code-inline">.grid--2</code></td><td>2 column grid</td></tr>
-                                        <tr><td><code class="code-inline">.grid--3</code></td><td>3 column grid</td></tr>
-                                        <tr><td><code class="code-inline">.grid--4</code></td><td>4 column grid</td></tr>
-                                        <tr><td><code class="code-inline">.grid--auto</code></td><td>Auto-fit columns (min 280px)</td></tr>
-                                        <tr><td><code class="code-inline">.grid--auto-sm</code></td><td>Auto-fit columns (min 200px)</td></tr>
+                                        <tr><td><code class="code-inline">.qw-grid-2</code></td><td>2 column grid</td></tr>
+                                        <tr><td><code class="code-inline">.qw-grid-3</code></td><td>3 column grid</td></tr>
+                                        <tr><td><code class="code-inline">.qw-grid-4</code></td><td>4 column grid</td></tr>
+                                        <tr><td><code class="code-inline">.qw-grid-auto</code></td><td>Auto-fit columns (min 280px)</td></tr>
+                                        <tr><td><code class="code-inline">.qw-grid-auto-sm</code></td><td>Auto-fit columns (min 200px)</td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <div class="example-box">
-                                <div class="grid grid--3" style="gap: 20px;">
+                                <div class="qw-grid qw-grid-3" style="gap: 20px;">
                                     <div style="background: #e8f5e8; padding: 20px; text-align: center; border-radius: 8px;">Grid Item 1</div>
                                     <div style="background: #e8f5e8; padding: 20px; text-align: center; border-radius: 8px;">Grid Item 2</div>
                                     <div style="background: #e8f5e8; padding: 20px; text-align: center; border-radius: 8px;">Grid Item 3</div>
@@ -289,11 +302,11 @@ npm install Qwantum
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code class="code-inline">.flex</code></td><td>Display flex</td></tr>
-                                        <tr><td><code class="code-inline">.flex--center</code></td><td>Center items</td></tr>
-                                        <tr><td><code class="code-inline">.flex--between</code></td><td>Space between</td></tr>
-                                        <tr><td><code class="code-inline">.flex--column</code></td><td>Flex direction column</td></tr>
-                                        <tr><td><code class="code-inline">.flex--wrap</code></td><td>Allow wrapping</td></tr>
+                                        <tr><td><code class="code-inline">.qw-flex</code></td><td>Display flex</td></tr>
+                                        <tr><td><code class="code-inline">.qw-flex-center</code></td><td>Center items</td></tr>
+                                        <tr><td><code class="code-inline">.qw-flex-between</code></td><td>Space between</td></tr>
+                                        <tr><td><code class="code-inline">.qw-flex-column</code></td><td>Flex direction column</td></tr>
+                                        <tr><td><code class="code-inline">.qw-flex-wrap</code></td><td>Allow wrapping</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -307,44 +320,44 @@ npm install Qwantum
                             <p>Qwantum provides several button styles and sizes:</p>
                             
                             <div class="example-box">
-                                <div class="flex flex--gap-sm flex--wrap">
-                                    <button class="btn btn--primary">Primary</button>
-                                    <button class="btn btn--secondary">Secondary</button>
-                                    <button class="btn btn--primary btn--sm">Small</button>
-                                    <button class="btn btn--primary btn--lg">Large</button>
+                                <div class="qw-flex qw-flex-gap-sm qw-flex-wrap">
+                                    <button class="qw-btn qw-btn-primary">Primary</button>
+                                    <button class="qw-btn qw-btn-secondary">Secondary</button>
+                                    <button class="qw-btn qw-btn-primary qw-btn-sm">Small</button>
+                                    <button class="qw-btn qw-btn-primary qw-btn-lg">Large</button>
                                 </div>
                             </div>
 
                             <div class="code-block">
-&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;
-&lt;button class="btn btn--secondary"&gt;Secondary&lt;/button&gt;
-&lt;button class="btn btn--primary btn--sm"&gt;Small&lt;/button&gt;
-&lt;button class="btn btn--primary btn--lg"&gt;Large&lt;/button&gt;
+&lt;button class="qw-btn qw-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="qw-btn qw-btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="qw-btn qw-btn-primary qw-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="qw-btn qw-btn-primary qw-btn-lg"&gt;Large&lt;/button&gt;
                             </div>
 
                             <h3>Cards</h3>
                             <p>Cards are versatile components for grouping content:</p>
 
                             <div class="example-box">
-                                <div class="grid grid--2" style="gap: 20px;">
-                                    <div class="card">
+                                <div class="qw-grid qw-grid-2" style="gap: 20px;">
+                                    <div class="qw-card">
                                         <h4>Standard Card</h4>
-                                        <p class="text--secondary">Regular card with hover effects and shadows.</p>
+                                        <p class="qw-text-secondary">Regular card with hover effects and shadows.</p>
                                     </div>
-                                    <div class="card card--inset">
+                                    <div class="qw-card qw-card-inset">
                                         <h4>Inset Card</h4>
-                                        <p class="text--secondary">Inset style card perfect for forms.</p>
+                                        <p class="qw-text-secondary">Inset style card perfect for forms.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="code-block">
-&lt;div class="card"&gt;
+&lt;div class="qw-card"&gt;
     &lt;h4&gt;Card Title&lt;/h4&gt;
     &lt;p&gt;Card content goes here.&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;div class="card card--inset"&gt;
+&lt;div class="qw-card qw-card-inset"&gt;
     &lt;h4&gt;Inset Card&lt;/h4&gt;
     &lt;p&gt;Perfect for form containers.&lt;/p&gt;
 &lt;/div&gt;
@@ -361,14 +374,75 @@ npm install Qwantum
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code class="code-inline">.section</code></td><td>Standard section padding</td></tr>
-                                        <tr><td><code class="code-inline">.section--sm</code></td><td>Small padding</td></tr>
-                                        <tr><td><code class="code-inline">.section--lg</code></td><td>Large padding</td></tr>
-                                        <tr><td><code class="code-inline">.section--white</code></td><td>White background</td></tr>
-                                        <tr><td><code class="code-inline">.section--light</code></td><td>Light gray background</td></tr>
-                                        <tr><td><code class="code-inline">.section--dark</code></td><td>Dark background</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section</code></td><td>Standard section padding</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section-sm</code></td><td>Small padding</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section-lg</code></td><td>Large padding</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section-white</code></td><td>White background</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section-light</code></td><td>Light gray background</td></tr>
+                                        <tr><td><code class="code-inline">.qw-section-dark</code></td><td>Dark background</td></tr>
                                     </tbody>
                                 </table>
+                            </div>
+
+                            <h3>Navigation</h3>
+                            <p>Navigation components with mobile support:</p>
+
+                            <div class="example-box">
+                                <nav class="qw-nav">
+                                    <a href="#" class="qw-nav_link">Home</a>
+                                    <a href="#" class="qw-nav_link">About</a>
+                                    <a href="#" class="qw-nav_link">Services</a>
+                                    <a href="#" class="qw-nav_link">Contact</a>
+                                </nav>
+                            </div>
+
+                            <div class="code-block">
+&lt;nav class="qw-nav"&gt;
+    &lt;a href="#" class="qw-nav_link"&gt;Home&lt;/a&gt;
+    &lt;a href="#" class="qw-nav_link"&gt;About&lt;/a&gt;
+    &lt;a href="#" class="qw-nav_link"&gt;Services&lt;/a&gt;
+    &lt;a href="#" class="qw-nav_link"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Mobile Navigation --&gt;
+&lt;div class="qw-burger"&gt;
+    &lt;div class="qw-burger_line"&gt;&lt;/div&gt;
+    &lt;div class="qw-burger_line"&gt;&lt;/div&gt;
+    &lt;div class="qw-burger_line"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;nav class="qw-nav qw-nav-mobile"&gt;
+    &lt;!-- Mobile menu items --&gt;
+&lt;/nav&gt;
+                            </div>
+
+                            <h3>Modal Windows</h3>
+                            <p>Interactive modal windows with JavaScript support:</p>
+
+                            <div class="example-box">
+                                <button class="qw-btn qw-btn-primary" data-qw-modal="example-modal">Open Modal</button>
+                            </div>
+
+                            <div class="code-block">
+&lt;!-- Modal Trigger --&gt;
+&lt;button class="qw-btn qw-btn-primary" data-qw-modal="example-modal"&gt;Open Modal&lt;/button&gt;
+
+&lt;!-- Modal Structure --&gt;
+&lt;div class="qw-modal" id="example-modal"&gt;
+    &lt;div class="qw-modal_content"&gt;
+        &lt;div class="qw-modal_header"&gt;
+            &lt;h3 class="qw-modal_title"&gt;Modal Title&lt;/h3&gt;
+            &lt;button class="qw-modal_close" type="button"&gt;&times;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="qw-modal_body"&gt;
+            &lt;p&gt;Modal content goes here.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="qw-modal_footer"&gt;
+            &lt;button class="qw-btn qw-btn-secondary"&gt;Cancel&lt;/button&gt;
+            &lt;button class="qw-btn qw-btn-primary"&gt;Confirm&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
                             </div>
                         </section>
 
@@ -387,11 +461,11 @@ npm install Qwantum
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code class="code-inline">.text--xs</code></td><td>Extra small text</td><td><span class="text--xs">Small text</span></td></tr>
-                                        <tr><td><code class="code-inline">.text--lg</code></td><td>Large text</td><td><span class="text--lg">Large text</span></td></tr>
-                                        <tr><td><code class="code-inline">.text--center</code></td><td>Center aligned</td><td><div class="text--center">Centered</div></td></tr>
-                                        <tr><td><code class="code-inline">.text--primary</code></td><td>Primary color</td><td><span class="text--primary">Primary</span></td></tr>
-                                        <tr><td><code class="code-inline">.text--secondary</code></td><td>Secondary color</td><td><span class="text--secondary">Secondary</span></td></tr>
+                                        <tr><td><code class="code-inline">.qw-text-xs</code></td><td>Extra small text</td><td><span class="qw-text-xs">Small text</span></td></tr>
+                                        <tr><td><code class="code-inline">.qw-text-lg</code></td><td>Large text</td><td><span class="qw-text-lg">Large text</span></td></tr>
+                                        <tr><td><code class="code-inline">.qw-text-center</code></td><td>Center aligned</td><td><div class="qw-text-center">Centered</div></td></tr>
+                                        <tr><td><code class="code-inline">.qw-text-primary</code></td><td>Primary color</td><td><span class="qw-text-primary">Primary</span></td></tr>
+                                        <tr><td><code class="code-inline">.qw-text-secondary</code></td><td>Secondary color</td><td><span class="qw-text-secondary">Secondary</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -408,23 +482,107 @@ npm install Qwantum
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code class="code-inline">.m-0</code></td><td>margin</td><td>0</td></tr>
-                                        <tr><td><code class="code-inline">.m-sm</code></td><td>margin</td><td>20px</td></tr>
-                                        <tr><td><code class="code-inline">.m-md</code></td><td>margin</td><td>30px</td></tr>
-                                        <tr><td><code class="code-inline">.p-0</code></td><td>padding</td><td>0</td></tr>
-                                        <tr><td><code class="code-inline">.p-sm</code></td><td>padding</td><td>20px</td></tr>
-                                        <tr><td><code class="code-inline">.p-md</code></td><td>padding</td><td>30px</td></tr>
+                                        <tr><td><code class="code-inline">.qw-m-0</code></td><td>margin</td><td>0</td></tr>
+                                        <tr><td><code class="code-inline">.qw-m-sm</code></td><td>margin</td><td>20px</td></tr>
+                                        <tr><td><code class="code-inline">.qw-m-md</code></td><td>margin</td><td>30px</td></tr>
+                                        <tr><td><code class="code-inline">.qw-p-0</code></td><td>padding</td><td>0</td></tr>
+                                        <tr><td><code class="code-inline">.qw-p-sm</code></td><td>padding</td><td>20px</td></tr>
+                                        <tr><td><code class="code-inline">.qw-p-md</code></td><td>padding</td><td>30px</td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <h3>Shadows & Border Radius</h3>
                             <div class="example-box">
-                                <div class="grid grid--3" style="gap: 20px;">
-                                    <div class="shadow--subtle p-md rounded--sm" style="background: white;">Subtle Shadow</div>
-                                    <div class="shadow--elevated p-md rounded--lg" style="background: white;">Elevated Shadow</div>
-                                    <div class="shadow--floating p-md rounded--xl" style="background: white;">Floating Shadow</div>
+                                <div class="qw-grid qw-grid-3" style="gap: 20px;">
+                                    <div class="qw-shadow-subtle qw-p-md qw-rounded-sm" style="background: white;">Subtle Shadow</div>
+                                    <div class="qw-shadow-elevated qw-p-md qw-rounded-lg" style="background: white;">Elevated Shadow</div>
+                                    <div class="qw-shadow-floating qw-p-md qw-rounded-xl" style="background: white;">Floating Shadow</div>
                                 </div>
+                            </div>
+
+                            <h3>Animations</h3>
+                            <p>Built-in animations for enhanced user experience:</p>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code class="code-inline">.qw-animate-fade-up</code></td><td>Fade in from bottom with scroll trigger</td></tr>
+                                        <tr><td><code class="code-inline">.qw-visible</code></td><td>Makes animated elements visible</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- JavaScript Features -->
+                        <section id="javascript" class="doc-section">
+                            <h2>JavaScript Features</h2>
+                            <p>Qwantum includes a powerful JavaScript library for interactive components:</p>
+
+                            <h3>Modal Management</h3>
+                            <div class="code-block">
+// Open a modal
+qw.openModal('modal-id');
+
+// Close a modal
+qw.closeModal('modal-id');
+
+// Create a modal programmatically
+const modalId = qw.createModal({
+    title: 'Dynamic Modal',
+    content: '&lt;p&gt;This modal was created with JavaScript!&lt;/p&gt;',
+    size: 'lg'
+});
+                            </div>
+
+                            <h3>Notifications</h3>
+                            <div class="code-block">
+// Show notifications
+qw.showNotification({
+    message: 'Success! Your changes have been saved.',
+    type: 'success',
+    duration: 3000
+});
+
+// Different notification types: 'info', 'success', 'warning', 'error'
+qw.showNotification({
+    message: 'Something went wrong!',
+    type: 'error',
+    closable: true
+});
+                            </div>
+
+                            <h3>Utility Functions</h3>
+                            <div class="code-block">
+// Smooth scroll to element
+Qwantum.utils.scrollTo('#target-section', 100);
+
+// Debounce function
+const debouncedFunction = Qwantum.utils.debounce(() =&gt; {
+    console.log('Debounced!');
+}, 300);
+
+// Throttle function  
+const throttledFunction = Qwantum.utils.throttle(() =&gt; {
+    console.log('Throttled!');
+}, 1000);
+                            </div>
+
+                            <h3>Event Handling</h3>
+                            <div class="code-block">
+// Listen for Qwantum events
+document.addEventListener('qw:modal:open', (e) =&gt; {
+    console.log('Modal opened:', e.detail.modalId);
+});
+
+document.addEventListener('qw:notification:show', (e) =&gt; {
+    console.log('Notification shown:', e.detail.message);
+});
                             </div>
                         </section>
 
@@ -496,22 +654,22 @@ $section-padding: 100px 0;
 
                             <h3>Hero Section</h3>
                             <div class="example-box">
-                                <div class="hero" style="padding: 60px 20px; background: white;">
-                                    <div class="hero__title brand-font" style="font-size: 2.5rem;">Welcome to Our Site</div>
-                                    <p class="hero__subtitle">Create something amazing with Qwantum</p>
-                                    <div class="hero__cta">
-                                        <button class="btn btn--primary btn--lg">Get Started</button>
+                                <div class="qw-hero" style="padding: 60px 20px; background: white;">
+                                    <div class="qw-hero_title qw-brand-font" style="font-size: 2.5rem;">Welcome to Our Site</div>
+                                    <p class="qw-hero_subtitle">Create something amazing with Qwantum</p>
+                                    <div class="qw-hero_cta">
+                                        <button class="qw-btn qw-btn-primary qw-btn-lg">Get Started</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="code-block">
-&lt;section class="hero"&gt;
-    &lt;div class="container"&gt;
-        &lt;h1 class="hero__title brand-font"&gt;Welcome to Our Site&lt;/h1&gt;
-        &lt;p class="hero__subtitle"&gt;Create something amazing with Qwantum&lt;/p&gt;
-        &lt;div class="hero__cta"&gt;
-            &lt;button class="btn btn--primary btn--lg"&gt;Get Started&lt;/button&gt;
+&lt;section class="qw-hero"&gt;
+    &lt;div class="qw-container"&gt;
+        &lt;h1 class="qw-hero_title qw-brand-font"&gt;Welcome to Our Site&lt;/h1&gt;
+        &lt;p class="qw-hero_subtitle"&gt;Create something amazing with Qwantum&lt;/p&gt;
+        &lt;div class="qw-hero_cta"&gt;
+            &lt;button class="qw-btn qw-btn-primary qw-btn-lg"&gt;Get Started&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;
@@ -519,54 +677,54 @@ $section-padding: 100px 0;
 
                             <h3>Feature Grid</h3>
                             <div class="example-box">
-                                <div class="grid grid--3" style="gap: 20px;">
-                                    <div class="card card--center">
-                                        <div class="icon-box">
+                                <div class="qw-grid qw-grid-3" style="gap: 20px;">
+                                    <div class="qw-card qw-card-center">
+                                        <div class="qw-icon-box">
                                             <span style="font-size: 1.5rem;">⚡</span>
                                         </div>
                                         <h4>Fast</h4>
-                                        <p class="text--secondary text--sm">Lightning fast performance</p>
+                                        <p class="qw-text-secondary qw-text-sm">Lightning fast performance</p>
                                     </div>
-                                    <div class="card card--center">
-                                        <div class="icon-box">
+                                    <div class="qw-card qw-card-center">
+                                        <div class="qw-icon-box">
                                             <span style="font-size: 1.5rem;">🎨</span>
                                         </div>
                                         <h4>Beautiful</h4>
-                                        <p class="text--secondary text--sm">Modern design system</p>
+                                        <p class="qw-text-secondary qw-text-sm">Modern design system</p>
                                     </div>
-                                    <div class="card card--center">
-                                        <div class="icon-box">
+                                    <div class="qw-card qw-card-center">
+                                        <div class="qw-icon-box">
                                             <span style="font-size: 1.5rem;">📱</span>
                                         </div>
                                         <h4>Responsive</h4>
-                                        <p class="text--secondary text--sm">Works on all devices</p>
+                                        <p class="qw-text-secondary qw-text-sm">Works on all devices</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="code-block">
-&lt;div class="grid grid--3"&gt;
-    &lt;div class="card card--center"&gt;
-        &lt;div class="icon-box"&gt;⚡&lt;/div&gt;
+&lt;div class="qw-grid qw-grid-3"&gt;
+    &lt;div class="qw-card qw-card-center"&gt;
+        &lt;div class="qw-icon-box"&gt;⚡&lt;/div&gt;
         &lt;h4&gt;Fast&lt;/h4&gt;
-        &lt;p class="text--secondary"&gt;Lightning fast performance&lt;/p&gt;
+        &lt;p class="qw-text-secondary"&gt;Lightning fast performance&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="card card--center"&gt;
-        &lt;div class="icon-box"&gt;🎨&lt;/div&gt;
+    &lt;div class="qw-card qw-card-center"&gt;
+        &lt;div class="qw-icon-box"&gt;🎨&lt;/div&gt;
         &lt;h4&gt;Beautiful&lt;/h4&gt;
-        &lt;p class="text--secondary"&gt;Modern design system&lt;/p&gt;
+        &lt;p class="qw-text-secondary"&gt;Modern design system&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="card card--center"&gt;
-        &lt;div class="icon-box"&gt;📱&lt;/div&gt;
+    &lt;div class="qw-card qw-card-center"&gt;
+        &lt;div class="qw-icon-box"&gt;📱&lt;/div&gt;
         &lt;h4&gt;Responsive&lt;/h4&gt;
-        &lt;p class="text--secondary"&gt;Works on all devices&lt;/p&gt;
+        &lt;p class="qw-text-secondary"&gt;Works on all devices&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
                             </div>
 
                             <h3>Contact Form</h3>
                             <div class="example-box">
-                                <div class="card" style="max-width: 500px;">
+                                <div class="qw-card" style="max-width: 500px;">
                                     <h3>Contact Us</h3>
                                     <form style="margin-top: 30px;">
                                         <div style="margin-bottom: 20px;">
@@ -578,13 +736,13 @@ $section-padding: 100px 0;
                                         <div style="margin-bottom: 20px;">
                                             <textarea placeholder="Your Message" rows="4" style="width: 100%; padding: 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+                                        <button type="submit" class="qw-btn qw-btn-primary qw-btn-full">Send Message</button>
                                     </form>
                                 </div>
                             </div>
 
                             <div class="code-block">
-&lt;div class="card"&gt;
+&lt;div class="qw-card"&gt;
     &lt;h3&gt;Contact Us&lt;/h3&gt;
     &lt;form&gt;
         &lt;div class="form-group"&gt;
@@ -596,7 +754,7 @@ $section-padding: 100px 0;
         &lt;div class="form-group"&gt;
             &lt;textarea placeholder="Message" class="form-input"&gt;&lt;/textarea&gt;
         &lt;/div&gt;
-        &lt;button type="submit" class="btn btn--primary btn--full"&gt;Send&lt;/button&gt;
+        &lt;button type="submit" class="qw-btn qw-btn-primary qw-btn-full"&gt;Send&lt;/button&gt;
     &lt;/form&gt;
 &lt;/div&gt;
                             </div>
@@ -612,7 +770,7 @@ $section-padding: 100px 0;
                                 <li>Safari 12+</li>
                                 <li>Edge 79+</li>
                             </ul>
-                            <p class="text--sm text--secondary">
+                            <p class="qw-text-sm qw-text-secondary">
                                 Note: CSS Grid and Flexbox features require modern browser support. 
                                 For older browser support, consider using a CSS Grid polyfill.
                             </p>
@@ -630,8 +788,8 @@ $section-padding: 100px 0;
                                 <li>Submit a pull request</li>
                             </ol>
                             <p>
-                                <a href="https://github.com/Qwaderton/Qwantum/issues" class="btn btn--secondary btn--sm">Report Issues</a>
-                                <a href="https://github.com/Qwaderton/Qwantum" class="btn btn--primary btn--sm" style="margin-left: 10px;">View Source</a>
+                                <a href="https://github.com/Qwaderton/Qwantum/issues" class="qw-btn qw-btn-secondary qw-btn-sm">Report Issues</a>
+                                <a href="https://github.com/Qwaderton/Qwantum" class="qw-btn qw-btn-primary qw-btn-sm" style="margin-left: 10px;">View Source</a>
                             </p>
                         </section>
                     </div>
@@ -640,75 +798,32 @@ $section-padding: 100px 0;
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Qwantum SCSS v1.0. Documentation built by Claude</p>
+    <footer class="qw-footer">
+        <div class="qw-container">
+            <p>&copy; 2025 Qwantum SCSS v1.0. Documentation updated to match framework v1.0</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for sidebar links
-        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Update active link
-                    document.querySelectorAll('.sidebar-nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
-        });
+    <div class="qw-overlay"></div>
 
-        // Highlight current section in sidebar
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '-100px 0px -50% 0px'
-        };
+    <!-- Example Modal -->
+    <div class="qw-modal" id="example-modal">
+        <div class="qw-modal_content">
+            <div class="qw-modal_header">
+                <h3 class="qw-modal_title">Example Modal</h3>
+                <button class="qw-modal_close" type="button">&times;</button>
+            </div>
+            <div class="qw-modal_body">
+                <p>This is an example modal window. You can include any content here!</p>
+                <p>The modal will close when you click outside of it, press Escape, or click the close button.</p>
+            </div>
+            <div class="qw-modal_footer">
+                <button class="qw-btn qw-btn-secondary" onclick="qw.closeModal('example-modal')">Close</button>
+                <button class="qw-btn qw-btn-primary" onclick="qw.showNotification({message: 'Modal action completed!', type: 'success'})">Action</button>
+            </div>
+        </div>
+    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    document.querySelectorAll('.sidebar-nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    const activeLink = document.querySelector(`.sidebar-nav a[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section[id]').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Copy code functionality
-        document.querySelectorAll('.code-block').forEach(block => {
-            block.style.position = 'relative';
-            block.style.cursor = 'pointer';
-            block.title = 'Click to copy';
-            
-            block.addEventListener('click', () => {
-                navigator.clipboard.writeText(block.textContent).then(() => {
-                    const originalBg = block.style.backgroundColor;
-                    block.style.backgroundColor = '#e8f5e8';
-                    setTimeout(() => {
-                        block.style.backgroundColor = originalBg;
-                    }, 200);
-                });
-            });
-        });
-    </script>
+    <script src="src/qwantum.js"></script>
 </body>
 </html>
